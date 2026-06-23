@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int maxDistance(string moves) {
+
+        int left=0,up=0,underscore=0;
+        for(char c:moves)
+        {
+            if(c=='L') left++;
+            else if(c=='R') left--;
+
+            else if(c=='U') up++;
+            else if(c=='D') up--;
+            else underscore++;
+
+        }
+
+        return abs(left)+abs(up)+underscore;
+        
+    }
+};
