@@ -1,0 +1,33 @@
+class Solution {
+public:
+    long long maxSum(vector<int>& nums, int k, int mul) {
+        sort(nums.begin(),nums.end());
+        int pos=nums.size()-1;
+
+        int cnt=0;
+        long long total_sum=0;
+        while(cnt<k)
+            {
+                if(mul>0)
+                {
+                    total_sum+=1LL*nums[pos]*mul;
+                    
+                }
+
+                else //mul==0 or mul negative 
+                {
+                    total_sum+=nums[pos];
+                }
+                
+
+
+
+                mul--;
+                cnt++;
+                pos--;
+            }
+
+        return total_sum;
+        
+    }
+};
