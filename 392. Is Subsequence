@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+
+        int i1=0,i2=0;
+        while(i1<s.size())
+        {
+            bool ok=false;
+            for(int j= i2; j<t.size();j++)
+            {
+                if(s[i1]==t[j])
+                {
+                    ok=true;
+                   
+                    i1++;
+                    i2=j+1;
+                    break;
+                   // cout<<"i2 = "<<i2<<"\n";
+                }
+            }
+
+            if(!ok) return false;
+        }
+
+        return true;
+        
+    }
+};
