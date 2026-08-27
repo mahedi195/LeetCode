@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<vector<int>> findDisappearedNumbers(vector<int>& nums, int lower,
+                                               int upper) {
+        int len = 1e5 + 9;
+        vector<vector<int>> result;
+        vector<int> present(len, 0);
+
+        int n=nums.size();
+
+        sort(nums.begin(),nums.end());
+
+        for (auto it : nums) {
+            int x = it;
+            present[x] = 1;
+        }
+
+        bool last_index=false;
+        int left = lower, right = lower;
+        for (int i = lower; i <= upper; i++) 
+        {
+            if (present[i] == 1) 
+            {
+                if(i==upper) last_index=true;
+                right = i - 1;
+                if (i - left >= 1)
+                    result.push_back({left, right});
+                left = i + 1;
+                right = i + 1;
+            }
+        }
+
+        if(!last_index)
+            result.push_back({left,upper});
+
+        return result;
+    }
+};
