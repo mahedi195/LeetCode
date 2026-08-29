@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int elevatorRequests(int n, vector<int>& requests) {
+
+        int sum=requests[0];
+        if(n==1) 
+            return sum;
+        int n1=requests.size();
+        for(int i=1;i<n1;i++)
+        {
+        sum+=abs(requests[i]-requests[i-1]);
+        }
+
+        return sum;
+        
+    }
+};
